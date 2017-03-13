@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>HTML5 Pacman</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <script>
+    	$.event.special.swipe.verticalDistanceThreshold = 30px;
+    	$.event.special.swipe.horizontalDistanceThreshold = 30px;
+    	$.event.special.swipe.scrollSupressionThreshold = 0px;
+    </script>
+    <script src="js/main.js"></script>
+
+</head>
+
+<body>
+
+  <script src="js/pacman.js"></script>
+  <script src="js/modernizr-1.5.min.js"></script>
+ 
+  <div id="pacman">
+
+  <script>
+
+    var el = document.getElementById("pacman");
+
+    if (Modernizr.canvas && Modernizr.localstorage && 
+        Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
+      window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
+    } else { 
+      el.innerHTML = "Something went wrong!<br />";
+    }
+ 
+  </script>
+  </div>
+
+</body>
+
+</html>
