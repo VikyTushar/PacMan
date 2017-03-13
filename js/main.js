@@ -30,10 +30,18 @@
 window.onload = function() {
     // add eventListener for tizenhwkey
     document.addEventListener('tizenhwkey', function(e) {
-        if (e.keyName === "back") {
-            try {
-                tizen.application.getCurrentApplication().hide();
-            } catch (ignore) {}
+    	if (e.keyName === "back") 
+        {
+            var txt;
+            var r = confirm("Are you sure want to close?");
+            if (r == true) {
+                try {
+                    tizen.application.getCurrentApplication().exit();
+                } catch (ignore) {}
+            
+            } else {
+              return false;   
+            }
         }
     });
 }; 
